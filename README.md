@@ -1,8 +1,21 @@
-# React + Vite
+> Demo for `biome` bug: `useValidAriaProps`: aria-atomic incorrectly flagged as invalid ARIA attribute
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Run `npm run lint:biome` to reproduce.
 
-Currently, two official plugins are available:
+```html
+  ✖ The element contains invalid ARIA attribute(s)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    5 │     <div>
+  > 7 │       <div aria-atomic="true">B</div>
+      │       ^^^^^^^^^^^^^^^^^^^^^^^^
+    8 │     </div>
+    9 │   )
+
+  ℹ aria-atomic is not a valid ARIA attribute.
+```
+
+### Environment
+
+ * Biome v1.4.1
+ * macOS Sonoma
+ * Node v18.18.2
